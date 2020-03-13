@@ -15,7 +15,7 @@ print '<html lang="en">'
 
 print '<head>'
 print '<meta charset="UTF-8">'
-print '    <link rel="stylesheet" href="/~mmerim/prax3/css/styles.css">'
+print '    <link rel="stylesheet" href="/prax3/css/styles.css">'
 print '</head>'
 print '<body>'
 
@@ -70,9 +70,9 @@ print '''<div style="text-align: center">
 print '<br>'
 
 print '''<div style="text-align: center">
-        <button onclick="location.href='/~mmerim/prax3/index.html'" type="button">Back to game</button>
+        <button onclick="location.href='/prax3/index.html'" type="button">Back to game</button>
       </div>'''
 
-print '<script src="/~mmerim/prax3/scripts.js"></script>'
+print '<script src="/prax3/scripts.js"></script>'
 
 print "</body>"
