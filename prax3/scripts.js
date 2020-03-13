@@ -248,7 +248,7 @@ function loadScores() {
 
 function loadScoreDictionary() {
     //var xhttp = new XMLHttpRequest();
-    var url = '/cgi-bin/prax3/score_provider.py';
+    var url = '/~mmerim/cgi-bin/prax3/score_provider.py';
    // xhttp.open("GET", url, true);
    // xhttp.send();
 
@@ -272,7 +272,7 @@ function loadScoreDictionary() {
 
 function saveScoreDictionary() {
     var http = new XMLHttpRequest();
-    var url = '/cgi-bin/prax3/score_dumper.py?data=' + JSON.stringify(scoreList);
+    var url = '/~mmerim/cgi-bin/prax3/score_dumper.py?data=' + JSON.stringify(scoreList);
     var params = scoreList;
     http.open('POST', url, true);
 
@@ -294,7 +294,7 @@ function initializeTimer() {
 }
 
 function search() {
-    var url = '/cgi-bin/prax3/score_representation.py';
+    var url = '/~mmerim/cgi-bin/prax3/score_representation.py';
     keyword = document.getElementById("searchField").value;
     if (keyword !== "" || keyword !== " " || keyword !== null) {
         url += "?search=" + keyword
