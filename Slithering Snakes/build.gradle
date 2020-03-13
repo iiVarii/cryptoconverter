@@ -1,0 +1,70 @@
+plugins {
+    id 'java'
+    id 'org.openjfx.javafxplugin' version '0.0.7'
+    id 'application'
+}
+
+group = "game"
+version = "1.0.1"
+
+sourceCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir("src")
+        }
+        resources {
+            srcDir("resources")
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+def currentOS = org.gradle.internal.os.OperatingSystem.current()
+def platform
+if (currentOS.isWindows()) {
+    platform = 'win'
+} else if (currentOS.isLinux()) {
+    platform = 'linux'
+} else if (currentOS.isMacOsX()) {
+    platform = 'mac'
+}
+
+dependencies {
+    compile "org.openjfx:javafx-base:11:${platform}"
+    compile "org.openjfx:javafx-graphics:11:${platform}"
+    compile "org.openjfx:javafx-controls:11:${platform}"
+    compile "org.openjfx:javafx-media:11:${platform}"
+    compile "org.openjfx:javafx-fxml:11:${platform}"
+    compile fileTree(dir: 'libs', include: '*.jar')
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.8'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.9.8'
+}
+
+mainClassName = 'game.GameMain'
+
+jar {
+    manifest {
+        attributes ("Implementation-Title": "Gradle",
+                'Main-Class': 'game.GameMain')
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+
+javafx {
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.media', 'javafx.graphics']
+    version = '11.0.2'
+}

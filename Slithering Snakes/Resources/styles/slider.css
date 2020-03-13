@@ -1,0 +1,25 @@
+.slider .thumb {
+    -fx-background-image: url("https://www.upload.ee/image/9825099/snek.png");
+    -fx-background-size: contain;
+    -fx-background-color: transparent;
+    -fx-padding: 15;
+
+}
+
+.slider .track {
+    -fx-background-color: blueviolet;
+}
+
+.slider .axis {
+    -fx-tick-label-fill: blueviolet;
+    -fx-tick-label-font: 16 Verdana;
+}
+
+.slider {
+    -fx-pref-width: 300px;
+}
+
+.slider .axis .axis-tick-mark, .slider .axis .axis-minor-tick-mark {
+    -fx-stroke: lime;
+
+}
